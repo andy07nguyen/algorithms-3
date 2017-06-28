@@ -22,7 +22,7 @@ validParens = (n) => {
 	return arr;
 };
 validParens(3)
-
+//recursion
 function validParens(n) {
 	var arr = [];
 	var helper = function(cores, n, arr) {
