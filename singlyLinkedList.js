@@ -23,11 +23,25 @@ class SinglyLinkedList {
 			return;
 		}
 		let current = this.head;
-		while (current.next) {
+		while(current.next) {
 			current = current.next;
 		}
 		current.next = node;
 		this.count++;
+	}
+
+	deleteLast() {
+		let current = this.head;
+		if (!current.next) {
+			current = null;
+			this.count = 0;
+		}
+		while(current.next.next) {
+			current = current.next;
+		}
+		current.next = null;
+		this.count--;
+		return this;
 	}
 
 	removeDuplicates() {
@@ -35,7 +49,7 @@ class SinglyLinkedList {
 		let current = this.head;
 		let runner = this.head.next;
 		hash[current.val] = true;
-		while (runner) {
+		while(runner) {
 			if (!(hash[runner.val])) {
 				hash[runner.val] = true;
 			} else {
@@ -51,7 +65,6 @@ class SinglyLinkedList {
 		}
 		return this;
 	}
-
 };
 
 let list1 = new SinglyLinkedList();
@@ -59,3 +72,4 @@ list1.add(3);
 list1.add(5);
 list1.add(4);
 list1.add(3);
+list1.deleteLast()
