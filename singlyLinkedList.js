@@ -65,11 +65,24 @@ class SinglyLinkedList {
 		}
 		return this;
 	}
+
+	nthLastElement(n) {
+		let resultValue = this.head;
+		let runner = this.head;
+		for (let i = 0; i < n; i++) {
+			runner = runner.next;
+		}
+		while (runner) {
+			resultValue = resultValue.next;
+			runner = runner.next;
+		}
+		return resultValue.val;
+	}
 };
 
 let list1 = new SinglyLinkedList();
 list1.add(3);
 list1.add(5);
 list1.add(4);
-list1.add(3);
-list1.deleteLast()
+list1.add("abc");
+list1.nthLastElement(2);
